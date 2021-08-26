@@ -1,0 +1,1 @@
+find `git rev-parse --show-toplevel` -type f -exec git check-ignore '{}' \; | xargs  -n 1 basename
