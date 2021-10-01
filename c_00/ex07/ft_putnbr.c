@@ -17,7 +17,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_print_int_min(void)
+void	put_int_min(void)
 {
 	ft_putchar('-');
 	ft_putchar('2');
@@ -32,42 +32,23 @@ void	ft_print_int_min(void)
 	ft_putchar('8');
 }
 
-void	ft_print_number(int nb)
-{
-	int	size;
-	int	tmp;
-
-	size = 1;
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = nb * -1;
-	}
-	tmp = nb;
-	while (tmp > 10)
-	{
-		size = size * 10;
-		tmp = tmp / 10;
-	}
-	while (size > 0)
-	{
-		ft_putchar(nb / size + '0');
-		nb = nb % size;
-		size = size / 10;
-	}
-}
-
 void	ft_putnbr(int nb)
 {
 	if (nb == -2147483648)
-		ft_print_int_min();
+		put_int_min();
 	else
 	{
-		if (nb == 0)
-			ft_putchar('0');
+		if (nb < 0)
+		{
+			ft_putchar('-');
+			nb = nb * -1;
+		}
+		if (nb < 10)
+			ft_putchar(nb + '0');
 		else
 		{
-			ft_print_number(nb);
+			ft_putnbr(nb / 10);
+			ft_putnbr(nb % 10);
 		}
 	}
 }
