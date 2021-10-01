@@ -45,6 +45,8 @@ int	find_char(char *str, char c)
 	i = 0;
 	while (str[i] && str[i] != c)
 		i++;
+	if (!str[i])
+		return 0
 	return (i);
 }
 
@@ -68,7 +70,7 @@ int	ft_atoi_base(char *str, char *base)
 			sign *= -1;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (find_char(base, *str))
 	{
 		result = result * basen + find_char(base, *str);
 		str++;
