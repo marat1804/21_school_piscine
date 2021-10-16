@@ -19,7 +19,7 @@ void	ft_list_reverse(t_list **begin_list)
 
 	if ((*begin_list) || ((*begin_list)->next))
 	{
-		new = NULL;
+        new = (void *)0;
 		while (*begin_list)
 		{
 			tmp = (*begin_list)->next;
